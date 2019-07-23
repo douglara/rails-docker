@@ -30,3 +30,13 @@ Start application
 ```
 $ docker-compose up
 ```
+
+
+
+Contributing / Problems?
+If you have encountered any problem, difficulty or bug, please start by opening a issue.
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/douglara/rails-docker. This project is intended to be a safe, welcoming space for collaboration.
+
+License
+The project is available as open source under the terms of the MIT License.
