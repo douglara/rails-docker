@@ -15,7 +15,7 @@ WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 
-RUN gem install bundler --version '= 1.15.2'
+RUN gem install bundler
 RUN bundle install
 
 COPY . /app
