@@ -1,0 +1,6 @@
+# POSTGRES
+# DATABASE_URL=postgres://postgres
+DB_SERVER=postgres
+DB_USER=postgres
+DB_PASSWORD=password
+RAILS_ENV=development
