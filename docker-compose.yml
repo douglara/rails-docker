@@ -6,7 +6,7 @@ services:
   postgres:
     image: postgres:10.9
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - ./data/postgres/:/var/lib/postgresql/data
     env_file:
       - 'env'
     ports:
