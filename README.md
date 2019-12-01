@@ -25,8 +25,6 @@ $ sudo chown $USER:$USER -R app && docker-compose build
 
 Change you database.yml default connection to:
 ```
-$ docker-compose run app bash -c "rails db:create db:migrate"
-```
 default: &default
   adapter: postgresql
   encoding: unicode
