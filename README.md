@@ -1,7 +1,8 @@
 # Rails-Docker
 
-Basic Rails 2.5.3 clean setup with postgres 10.9 to start development project fast.
-
+Initial setup to start fast your Rails applications
+- Ruby 2.5.3
+- Postgres 10.9
 
 ## Getting started
 
@@ -13,18 +14,33 @@ Build containers
 ```
 $ cd rails-docker && docker-compose build
 ```
-Install Rails
+Install Rails and start new project
 ```
-$ docker-compose run app gem install rails 
+$ docker-compose run app bash -c "gem install rails; rails new . --database=postgresql"
 ```
-Start new project
+Change ownership of app files for you and re build app container
 ```
-$ docker-compose run app rails new app
+$ sudo chown $USER:$USER -R app && docker-compose build
+```
+
+Change you database.yml default connection to:
+```
+$ docker-compose run app bash -c "rails db:create db:migrate"
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  user: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_SERVER'] %>
 ```
 
 Create database table
 ```
-$ rails db:create db:migrate
+$ docker-compose run app bash -c "rails db:create db:migrate"
 ```
 Start application
 ```
